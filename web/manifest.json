@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "ars_apps_dev",
     "short_name": "ars_apps_dev",
+=======
+    "name": "ww_ppkd_app_dev",
+    "short_name": "ww_ppkd_app_dev",
+>>>>>>> 81b3b5f64fdad61564836b7244498a60b61cf6ec
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

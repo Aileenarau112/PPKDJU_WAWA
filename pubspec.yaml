@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: ars_apps_dev
+=======
+name: ww_ppkd_app_dev
+>>>>>>> 81b3b5f64fdad61564836b7244498a60b61cf6ec
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -58,9 +62,15 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+<<<<<<< HEAD
   assets:
      - assets/icons/
      - assets/images/
+=======
+  assets: 
+   - assets/images/
+
+>>>>>>> 81b3b5f64fdad61564836b7244498a60b61cf6ec
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -73,6 +83,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+<<<<<<< HEAD
   fonts:
     - family: Gilroy
       fonts:
@@ -85,6 +96,14 @@ flutter:
       fonts:
         - asset: assets/fonts/Montserrat-Full-Version/Montserrat-Full-Version
 
+=======
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+>>>>>>> 81b3b5f64fdad61564836b7244498a60b61cf6ec
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
