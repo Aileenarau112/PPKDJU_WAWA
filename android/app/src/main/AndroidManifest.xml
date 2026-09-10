@@ -1,10 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-<<<<<<< HEAD
         android:label="ars_apps_dev"
-=======
-        android:label="ww_ppkd_app_dev"
->>>>>>> 81b3b5f64fdad61564836b7244498a60b61cf6ec
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

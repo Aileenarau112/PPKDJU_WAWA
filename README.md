@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # ars_apps_dev
-=======
-# ww_ppkd_app_dev
->>>>>>> 81b3b5f64fdad61564836b7244498a60b61cf6ec
 
 A new Flutter project.
 

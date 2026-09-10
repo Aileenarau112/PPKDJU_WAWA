@@ -1,3 +1,4 @@
+import 'package:ars_apps_dev/Tugas%202%20Flutter/Implementasi_Layout%20_Profil_Kompleks.dart';
 import 'package:flutter/material.dart';
 // import 'package:ars_apps_dev/Tugas%201%20Dart%20Fundamental/Digital_Biodata_Sederhana.dart';
 // import 'package:ars_apps_dev/Tugas%202%20Flutter/Implementasi_Layout%20_Profil_Kompleks.dart';
@@ -25,7 +26,7 @@ class Myapps extends StatelessWidget {
   // This widget is the root of your appslication.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: loginScreen());
+    return MaterialApp(home: LoginScreen());
     }
   }
 

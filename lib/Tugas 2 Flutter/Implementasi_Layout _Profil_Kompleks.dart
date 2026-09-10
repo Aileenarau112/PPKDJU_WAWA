@@ -10,12 +10,23 @@ class ImplementasiLayoutProfilKompleks extends StatefulWidget {
 
 class _ImplementasiLayoutProfilKompleksState
     extends State<ImplementasiLayoutProfilKompleks> {
-  // State Variables
+  // State Variables Existing
   bool _isFavorite = false;
   String _selectedPackage = 'Basic Strip Package';
   int _selectedPrice = 35000;
   String _selectedFrame = 'Vintage Ribbon';
   String _selectedPaymentMethod = 'QRIS';
+
+  // State Variables Baru (UI Enhancement)
+  DateTime _selectedDate = DateTime.now();
+  TimeOfDay _selectedTime = const TimeOfDay(hour: 14, minute: 0);
+  
+  final Map<String, int> _addons = {
+    'Bando & Kacamata Unik': 5000,
+    'Extra Printed Strip (+1)': 10000,
+    'Sleeve Protector Glossy': 3000,
+  };
+  final Set<String> _selectedAddons = {};
 
   // Map Harga Paket
   final Map<String, int> _packagePrices = {
@@ -23,6 +34,15 @@ class _ImplementasiLayoutProfilKompleksState
     'Sweet Couple Session': 50000,
     'Party Group Package': 85000,
   };
+
+  // Hitung total harga paket + addons
+  int get _totalPrice {
+    int total = _selectedPrice;
+    for (var addon in _selectedAddons) {
+      total += _addons[addon] ?? 0;
+    }
+    return total;
+  }
 
   // Helper 1: Card Statistik
   Widget _buildStatCard(String value, String label) {
@@ -189,6 +209,124 @@ class _ImplementasiLayoutProfilKompleksState
     );
   }
 
+  // UI Baru: Widget Pemilih Tanggal & Jam
+  Widget _buildDateTimePicker() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFF9F5),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFFB5838D).withOpacity(0.3)),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: InkWell(
+              onTap: () async {
+                final DateTime? picked = await showDatePicker(
+                  context: context,
+                  initialDate: _selectedDate,
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime.now().add(const Duration(days: 30)),
+                );
+                if (picked != null) setState(() => _selectedDate = picked);
+              },
+              child: Row(
+                children: [
+                  const Icon(Icons.calendar_today, size: 20, color: Color(0xFFB5838D)),
+                  const SizedBox(width: 8),
+                  Text(
+                    '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
+                    style: const TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF4A2E35)),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: InkWell(
+              onTap: () async {
+                final TimeOfDay? picked = await showTimePicker(
+                  context: context,
+                  initialTime: _selectedTime,
+                );
+                if (picked != null) setState(() => _selectedTime = picked);
+              },
+              child: Row(
+                children: [
+                  const Icon(Icons.access_time, size: 20, color: Color(0xFFB5838D)),
+                  const SizedBox(width: 8),
+                  Text(
+                    _selectedTime.format(context),
+                    style: const TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF4A2E35)),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // UI Baru: Widget Aksesori Tambahan
+  Widget _buildAddonsSection() {
+    return Column(
+      children: _addons.entries.map((entry) {
+        final isChecked = _selectedAddons.contains(entry.key);
+        return CheckboxListTile(
+          contentPadding: EdgeInsets.zero,
+          activeColor: const Color(0xFFB5838D),
+          title: Text(entry.key, style: const TextStyle(fontSize: 13, color: Color(0xFF4A2E35))),
+          subtitle: Text('+Rp ${entry.value.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}',
+              style: const TextStyle(fontSize: 11, color: Color(0xFFB5838D))),
+          value: isChecked,
+          onChanged: (bool? value) {
+            setState(() {
+              if (value == true) {
+                _selectedAddons.add(entry.key);
+              } else {
+                _selectedAddons.remove(entry.key);
+              }
+            });
+          },
+        );
+      }).toList(),
+    );
+  }
+
+  // UI Baru: Widget Section Ulasan Pengunjung
+  Widget _buildReviewsSection() {
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(12),
+          margin: const EdgeInsets.only(bottom: 8),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFFF9F5),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Syarifa', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Color(0xFF4A2E35))),
+                  Text('⭐⭐⭐⭐⭐', style: TextStyle(fontSize: 10)),
+                ],
+              ),
+              SizedBox(height: 4),
+              Text('"Tempatnya estetik banget, frame pita lucuu dan pencahayaannya bagus!"',
+                  style: TextStyle(fontSize: 12, color: Color(0xFF4A2E35))),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
   // Modal Pembayaran
   void _showBookingFlow() {
     showModalBottomSheet(
@@ -232,6 +370,15 @@ class _ImplementasiLayoutProfilKompleksState
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      const Text('Jadwal:', style: TextStyle(color: Colors.grey)),
+                      Text('${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year} ${_selectedTime.format(context)}',
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
                       const Text('Paket Foto:', style: TextStyle(color: Colors.grey)),
                       Text(_selectedPackage, style: const TextStyle(fontWeight: FontWeight.bold)),
                     ],
@@ -244,13 +391,23 @@ class _ImplementasiLayoutProfilKompleksState
                       Text(_selectedFrame, style: const TextStyle(fontWeight: FontWeight.bold)),
                     ],
                   ),
+                  if (_selectedAddons.isNotEmpty) ...[
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('Add-ons:', style: TextStyle(color: Colors.grey)),
+                        Text('${_selectedAddons.length} Item Ditambahkan', style: const TextStyle(fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                  ],
                   const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text('Total Biaya:', style: TextStyle(color: Colors.grey)),
                       Text(
-                        'Rp ${_selectedPrice.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}',
+                        'Rp ${_totalPrice.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}',
                         style: const TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF4A2E35)),
                       ),
                     ],
@@ -342,8 +499,9 @@ class _ImplementasiLayoutProfilKompleksState
                     const SizedBox(height: 8),
                     const Text('Kode Booking: #MMR-88219', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
                     const Divider(height: 16),
-                    Text('Paket: $_selectedPackage', style: const TextStyle(fontSize: 12)),
-                    Text('Frame: $_selectedFrame', style: const TextStyle(fontSize: 12)),
+                    Text('Jadwal: ${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year} ${_selectedTime.format(context)}', style: const TextStyle(fontSize: 11)),
+                    Text('Paket: $_selectedPackage', style: const TextStyle(fontSize: 11)),
+                    Text('Frame: $_selectedFrame', style: const TextStyle(fontSize: 11)),
                   ],
                 ),
               ),
@@ -532,6 +690,25 @@ class _ImplementasiLayoutProfilKompleksState
 
             const SizedBox(height: 24),
 
+            // UI Baru: Pemilih Tanggal & Jam
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Pilih Jadwal Kedatangan 📅',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF4A2E35)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: _buildDateTimePicker(),
+            ),
+
+            const SizedBox(height: 24),
+
             // Pilih Paket
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
@@ -555,6 +732,24 @@ class _ImplementasiLayoutProfilKompleksState
                   _buildPackageCard('Party Group Package', 'Rp 85.000', '6 Photostrips + All Digital Files'),
                 ],
               ),
+            ),
+
+            const SizedBox(height: 16),
+
+            // UI Baru: Add-ons Opsional
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Aksesori & Tambahan (Opsional) ✨',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF4A2E35)),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: _buildAddonsSection(),
             ),
 
             const SizedBox(height: 24),
@@ -586,6 +781,25 @@ class _ImplementasiLayoutProfilKompleksState
               ),
             ),
 
+            const SizedBox(height: 24),
+
+            // UI Baru: Ulasan Singkat
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Apa Kata Mereka? 💬',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF4A2E35)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: _buildReviewsSection(),
+            ),
+
             const SizedBox(height: 28),
 
             // Tombol Utama Booking
@@ -603,7 +817,7 @@ class _ImplementasiLayoutProfilKompleksState
                   ),
                   icon: const Icon(Icons.calendar_today_rounded, color: Colors.white),
                   label: Text(
-                    'Book ($_selectedPackage)',
+                    'Book Now (Rp ${_totalPrice.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')})',
                     style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                 ),
