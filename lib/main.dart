@@ -1,4 +1,11 @@
+import 'package:ars_apps_dev/Latihan/LatihanBottomNavigator.dart';
+import 'package:ars_apps_dev/Latihan/LatihanDrawer.dart';
 import 'package:ars_apps_dev/Tugas%202%20Flutter/Implementasi_Layout%20_Profil_Kompleks.dart';
+import 'package:ars_apps_dev/Tugas%205%20Flutter/InteraksiPengguna_dan_EventHandling.dart';
+import 'package:ars_apps_dev/Tugas%207%20Flutter/FormInputInteraktif_dengan_NavigasiDrawer.dart';
+import 'package:ars_apps_dev/Tugas%208%20Flutter/NavigasiBawah_dengan_BottomNavigationBar.dart';
+import 'package:ars_apps_dev/Tugas%209%20Flutter/MenampilkanDaftarKategori_dengan_ListViewBuilder.dart';
+import 'package:ars_apps_dev/pages/validasi.dart';
 import 'package:flutter/material.dart';
 // import 'package:ars_apps_dev/Tugas%201%20Dart%20Fundamental/Digital_Biodata_Sederhana.dart';
 // import 'package:ars_apps_dev/Tugas%202%20Flutter/Implementasi_Layout%20_Profil_Kompleks.dart';
@@ -26,7 +33,7 @@ class Myapps extends StatelessWidget {
   // This widget is the root of your appslication.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: LoginScreen());
+    return MaterialApp(home: LoginScreenDB());
     }
   }
 
