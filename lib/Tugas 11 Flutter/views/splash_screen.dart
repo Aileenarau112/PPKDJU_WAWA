@@ -1,7 +1,7 @@
+import 'package:ars_apps_dev/Tugas%2011%20Flutter/helper/preference_handler.dart';
 import 'package:flutter/material.dart';
-import 'package:ars_apps_dev/Tugas%2011%20Flutter/helpers/preference_handler.dart';
-import 'package:ars_apps_dev/Tugas%2011%20Flutter/views/login_screen.dart';
-import 'package:ars_apps_dev/Tugas%2011%20Flutter/views/home_screen.dart';
+import 'login_screen.dart';
+import 'home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
