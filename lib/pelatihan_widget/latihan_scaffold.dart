@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LatihanScaffold extends StatelessWidget {
-const LatihanScaffold({ Key? key }) : super(key: key);
+const LatihanScaffold({ super.key });
 
   @override
   Widget build(BuildContext context){

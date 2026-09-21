@@ -5,7 +5,7 @@ class FormPage extends StatefulWidget {
   // Variabel opsional untuk menampung data lama saat mode Edit
   final Map<String, dynamic>? itemData;
 
-  const FormPage({Key? key, this.itemData}) : super(key: key);
+  const FormPage({super.key, this.itemData});
 
   @override
   State<FormPage> createState() => _FormPageState();

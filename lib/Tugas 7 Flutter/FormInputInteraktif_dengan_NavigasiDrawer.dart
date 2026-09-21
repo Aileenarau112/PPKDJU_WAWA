@@ -130,7 +130,7 @@ class _ForminputinteraktifDenganNavigasidrawerState extends State<Forminputinter
         ),
       ),
       selected: isSelected,
-      selectedTileColor: Colors.blue.withOpacity(0.08),
+      selectedTileColor: Colors.blue.withValues(alpha: 0.08),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       onTap: () {
         setState(() => _menuAktif = menu);
@@ -168,14 +168,14 @@ class _ForminputinteraktifDenganNavigasidrawerState extends State<Forminputinter
         formWidget = SwitchListTile(
           title: Text("Aktifkan Mode Gelap", style: TextStyle(color: textColor, fontWeight: FontWeight.w500)),
           value: _isDarkMode,
-          activeColor: Colors.blue.shade700,
+          activeThumbColor: Colors.blue.shade700,
           onChanged: (val) => setState(() => _isDarkMode = val),
         );
         break;
 
       case MenuPreferensi.kategoriProduk:
         formWidget = DropdownButtonFormField<String>(
-          value: _kategoriPilihan,
+          initialValue: _kategoriPilihan,
           dropdownColor: isDark ? const Color(0xFF1E1E1E) : Colors.white,
           style: TextStyle(color: textColor, fontSize: 16),
           decoration: InputDecoration(
@@ -239,7 +239,7 @@ class _ForminputinteraktifDenganNavigasidrawerState extends State<Forminputinter
 
     return Card(
       elevation: 4,
-      shadowColor: Colors.blue.withOpacity(0.2),
+      shadowColor: Colors.blue.withValues(alpha: 0.2),
       color: isDark ? const Color(0xFF1E1E1E) : Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
@@ -270,7 +270,7 @@ class _ForminputinteraktifDenganNavigasidrawerState extends State<Forminputinter
 
     return Card(
       elevation: 3,
-      shadowColor: Colors.blue.withOpacity(0.15),
+      shadowColor: Colors.blue.withValues(alpha: 0.15),
       color: isDark ? const Color(0xFF1E1E1E) : Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(

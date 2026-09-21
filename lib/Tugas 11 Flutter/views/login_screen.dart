@@ -2,7 +2,7 @@ import 'package:ars_apps_dev/Tugas%2011%20Flutter/helper/preference_handler.dart
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

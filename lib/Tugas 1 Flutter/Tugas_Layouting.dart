@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TugasLayouting extends StatelessWidget {
-  const TugasLayouting({Key? key}) : super(key: key);
+  const TugasLayouting({super.key});
 
   @override
   Widget build(BuildContext context) {

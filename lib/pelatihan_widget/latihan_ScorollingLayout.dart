@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LatihanScrollingLayout extends StatelessWidget {
-const LatihanScrollingLayout({ Key? key }) : super(key: key);
+const LatihanScrollingLayout({ super.key });
 
   @override
   Widget build(BuildContext context){

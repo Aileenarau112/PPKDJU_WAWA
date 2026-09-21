@@ -11,7 +11,7 @@ void main() {
 }
 
 class DigitalBiodataSederhana extends StatelessWidget {
-  const DigitalBiodataSederhana({Key? key}) : super(key: key);
+  const DigitalBiodataSederhana({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class DigitalBiodataSederhana extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.blueAccent.withOpacity(0.3),
+                    color: Colors.blueAccent.withValues(alpha: 0.3),
                     blurRadius: 12,
                     offset: const Offset(0, 6),
                   ),
@@ -163,7 +163,7 @@ class DigitalBiodataSederhana extends StatelessWidget {
   Widget buildInfoCard(String title, IconData icon, Color headerColor, List<Widget> children) {
     return Card(
       elevation: 3,
-      shadowColor: headerColor.withOpacity(0.2),
+      shadowColor: headerColor.withValues(alpha: 0.2),
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
@@ -176,7 +176,7 @@ class DigitalBiodataSederhana extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: headerColor.withOpacity(0.15),
+                    color: headerColor.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(icon, color: headerColor, size: 22),
@@ -193,7 +193,7 @@ class DigitalBiodataSederhana extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            Divider(color: headerColor.withOpacity(0.2), thickness: 1),
+            Divider(color: headerColor.withValues(alpha: 0.2), thickness: 1),
             const SizedBox(height: 8),
             ...children,
           ],

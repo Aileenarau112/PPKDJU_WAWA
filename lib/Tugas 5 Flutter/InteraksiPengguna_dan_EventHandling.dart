@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InteraksiPenggunaDanEventHandling extends StatefulWidget {
-  InteraksiPenggunaDanEventHandling({Key? key}) : super(key: key);
+  const InteraksiPenggunaDanEventHandling({super.key});
 
   @override
   State<InteraksiPenggunaDanEventHandling> createState() =>

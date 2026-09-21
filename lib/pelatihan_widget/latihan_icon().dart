@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LatihanIcon extends StatelessWidget {
-const LatihanIcon({ Key? key }) : super(key: key);
+const LatihanIcon({ super.key });
 
   @override
   Widget build(BuildContext context){

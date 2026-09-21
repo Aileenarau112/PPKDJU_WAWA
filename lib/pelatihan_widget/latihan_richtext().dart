@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LatihanRichtext extends StatelessWidget {
-const LatihanRichtext({ Key? key }) : super(key: key);
+const LatihanRichtext({ super.key });
 
   @override
   Widget build(BuildContext context){

@@ -40,13 +40,13 @@ class _NavigasiBawahDenganBottomNavigationBarState extends State<NavigasiBawahDe
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _daftarHalaman = [
+    final List<Widget> daftarHalaman = [
       const HalamanHome(),      
       const HalamanTentang(),   
     ];
 
     return Scaffold(
-      body: _daftarHalaman[_currentIndex],
+      body: daftarHalaman[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -177,7 +177,7 @@ class _HalamanHomeState extends State<HalamanHome> {
         ),
       ),
       selected: isSelected,
-      selectedTileColor: Colors.blue.withOpacity(0.08),
+      selectedTileColor: Colors.blue.withValues(alpha: 0.08),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       onTap: () {
         setState(() => _menuAktif = menu);
@@ -215,14 +215,14 @@ class _HalamanHomeState extends State<HalamanHome> {
         formWidget = SwitchListTile(
           title: Text("Aktifkan Mode Gelap", style: TextStyle(color: textColor, fontWeight: FontWeight.w500)),
           value: _isDarkMode,
-          activeColor: Colors.blue.shade700,
+          activeThumbColor: Colors.blue.shade700,
           onChanged: (val) => setState(() => _isDarkMode = val),
         );
         break;
 
       case MenuPreferensi.kategoriProduk:
         formWidget = DropdownButtonFormField<String>(
-          value: _kategoriPilihan,
+          initialValue: _kategoriPilihan,
           dropdownColor: isDark ? const Color(0xFF1E1E1E) : Colors.white,
           style: TextStyle(color: textColor, fontSize: 16),
           decoration: InputDecoration(
@@ -286,7 +286,7 @@ class _HalamanHomeState extends State<HalamanHome> {
 
     return Card(
       elevation: 4,
-      shadowColor: Colors.blue.withOpacity(0.2),
+      shadowColor: Colors.blue.withValues(alpha: 0.2),
       color: isDark ? const Color(0xFF1E1E1E) : Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
@@ -316,7 +316,7 @@ class _HalamanHomeState extends State<HalamanHome> {
 
     return Card(
       elevation: 3,
-      shadowColor: Colors.blue.withOpacity(0.15),
+      shadowColor: Colors.blue.withValues(alpha: 0.15),
       color: isDark ? const Color(0xFF1E1E1E) : Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
@@ -398,7 +398,7 @@ class HalamanTentang extends StatelessWidget {
         child: Center(
           child: Card(
             elevation: 4,
-            shadowColor: Colors.blue.withOpacity(0.2),
+            shadowColor: Colors.blue.withValues(alpha: 0.2),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: Padding(
               padding: const EdgeInsets.all(24.0),

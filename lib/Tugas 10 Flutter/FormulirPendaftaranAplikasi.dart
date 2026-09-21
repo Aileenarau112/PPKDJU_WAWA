@@ -114,7 +114,7 @@ class _PendaftaranScreenState extends State<PendaftaranScreen> {
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Colors.white.withValues(alpha: 0.2),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(Icons.person_add_rounded, size: 60, color: Colors.white),
@@ -139,7 +139,7 @@ class _PendaftaranScreenState extends State<PendaftaranScreen> {
                   Card(
                     elevation: 8,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-                    color: Colors.white.withOpacity(0.95),
+                    color: Colors.white.withValues(alpha: 0.95),
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Form(

@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 hintStyle: GoogleFonts.poppins(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
-                                  color: const Color(0xFF262626).withOpacity(0.56),
+                                  color: const Color(0xFF262626).withValues(alpha: 0.56),
                                 ),
                                 border: InputBorder.none,
                                 contentPadding: const EdgeInsets.symmetric(vertical: 14),
@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 hintStyle: GoogleFonts.poppins(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
-                                  color: const Color(0xFF262626).withOpacity(0.56),
+                                  color: const Color(0xFF262626).withValues(alpha: 0.56),
                                 ),
                                 border: InputBorder.none,
                                 contentPadding: const EdgeInsets.symmetric(vertical: 14),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // import 'latihan_grid_view.dart';
 
 class LatihanDrawer extends StatefulWidget {
-  const LatihanDrawer({Key? key}) : super(key: key);
+  const LatihanDrawer({super.key});
 
   @override
   State<LatihanDrawer> createState() => _LatihanDrawerState();
@@ -77,7 +77,7 @@ class _LatihanDrawerState extends State<LatihanDrawer> {
 
 // Dummy class placeholder (pastikan diganti/diimport dari file aslinya)
 class LatihanCircleavatar extends StatelessWidget {
-  const LatihanCircleavatar({Key? key}) : super(key: key);
+  const LatihanCircleavatar({super.key});
   @override
   Widget build(BuildContext context) {
     return const Center(child: Text('Ini Halaman Circle Avatar'));
@@ -85,7 +85,7 @@ class LatihanCircleavatar extends StatelessWidget {
 }
 
 class LatihanGridview extends StatelessWidget {
-  const LatihanGridview({Key? key}) : super(key: key);
+  const LatihanGridview({super.key});
   @override
   Widget build(BuildContext context) {
     return const Center(child: Text('Ini Halaman Grid View'));

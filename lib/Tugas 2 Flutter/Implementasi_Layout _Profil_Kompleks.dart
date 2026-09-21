@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ImplementasiLayoutProfilKompleks extends StatefulWidget {
-  const ImplementasiLayoutProfilKompleks({Key? key}) : super(key: key);
+  const ImplementasiLayoutProfilKompleks({super.key});
 
   @override
   State<ImplementasiLayoutProfilKompleks> createState() =>
@@ -52,7 +52,7 @@ class _ImplementasiLayoutProfilKompleksState
         color: const Color(0xFFFFF9F5),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: const Color(0xFFB5838D).withOpacity(0.3),
+          color: const Color(0xFFB5838D).withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -103,7 +103,7 @@ class _ImplementasiLayoutProfilKompleksState
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: const Color(0xFFB5838D).withOpacity(0.4),
+                    color: const Color(0xFFB5838D).withValues(alpha: 0.4),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   )
@@ -153,7 +153,7 @@ class _ImplementasiLayoutProfilKompleksState
           color: isSelected ? const Color(0xFFF4EAD4) : const Color(0xFFFFF9F5),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: isSelected ? const Color(0xFF4A2E35) : const Color(0xFFB5838D).withOpacity(0.3),
+            color: isSelected ? const Color(0xFF4A2E35) : const Color(0xFFB5838D).withValues(alpha: 0.3),
             width: isSelected ? 2 : 1,
           ),
         ),
@@ -162,7 +162,7 @@ class _ImplementasiLayoutProfilKompleksState
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color(0xFFB5838D).withOpacity(0.15),
+                color: const Color(0xFFB5838D).withValues(alpha: 0.15),
                 shape: BoxShape.circle,
               ),
               child: Icon(
@@ -216,7 +216,7 @@ class _ImplementasiLayoutProfilKompleksState
       decoration: BoxDecoration(
         color: const Color(0xFFFFF9F5),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFB5838D).withOpacity(0.3)),
+        border: Border.all(color: const Color(0xFFB5838D).withValues(alpha: 0.3)),
       ),
       child: Row(
         children: [
@@ -419,7 +419,7 @@ class _ImplementasiLayoutProfilKompleksState
                   ),
                   const SizedBox(height: 10),
                   DropdownButtonFormField<String>(
-                    value: _selectedPaymentMethod,
+                    initialValue: _selectedPaymentMethod,
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
@@ -491,7 +491,7 @@ class _ImplementasiLayoutProfilKompleksState
                 decoration: BoxDecoration(
                   color: const Color(0xFFFAF6F0),
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: const Color(0xFFB5838D).withOpacity(0.3)),
+                  border: Border.all(color: const Color(0xFFB5838D).withValues(alpha: 0.3)),
                 ),
                 child: Column(
                   children: [

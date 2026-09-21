@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FormInputDanPenataanGrid extends StatelessWidget {
-  const FormInputDanPenataanGrid({Key? key}) : super(key: key);
+  const FormInputDanPenataanGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +105,7 @@ class FormInputDanPenataanGrid extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 3, horizontal: 6),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.6),
+                            color: Colors.black.withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
@@ -142,7 +142,7 @@ class FormInputDanPenataanGrid extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 3, horizontal: 6),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.6),
+                            color: Colors.black.withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
@@ -179,7 +179,7 @@ class FormInputDanPenataanGrid extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 3, horizontal: 6),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.6),
+                            color: Colors.black.withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
@@ -216,7 +216,7 @@ class FormInputDanPenataanGrid extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 3, horizontal: 6),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.6),
+                            color: Colors.black.withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
@@ -253,7 +253,7 @@ class FormInputDanPenataanGrid extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 3, horizontal: 6),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.6),
+                            color: Colors.black.withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
@@ -290,7 +290,7 @@ class FormInputDanPenataanGrid extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 3, horizontal: 6),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.6),
+                            color: Colors.black.withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
