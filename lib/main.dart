@@ -1,5 +1,6 @@
 import 'package:ars_apps_dev/Latihan/LatihanBottomNavigator.dart';
 import 'package:ars_apps_dev/Latihan/LatihanDrawer.dart';
+import 'package:ars_apps_dev/Tugas%2012%20Flutter/Implementasi%20Database%20Lokal%20dengan%20SQFLite/pages/halaman_formulir.dart';
 import 'package:ars_apps_dev/Tugas%202%20Flutter/Implementasi_Layout%20_Profil_Kompleks.dart';
 import 'package:ars_apps_dev/Tugas%205%20Flutter/InteraksiPengguna_dan_EventHandling.dart';
 import 'package:ars_apps_dev/Tugas%207%20Flutter/FormInputInteraktif_dengan_NavigasiDrawer.dart';
@@ -40,7 +41,7 @@ class Myapps extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
